@@ -94,10 +94,11 @@ process_wait (tid_t child_tid UNUSED)
 /* Free the current process's resources. */
 void
 process_exit (void)
-{
+{ 
   struct thread *cur = thread_current ();
   uint32_t *pd;
-
+  printf("%s: exit(%d)\n", cur->name, cur->ret);
+  
   /* Destroy the current process's page directory and switch back
      to the kernel-only page directory. */
   pd = cur->pagedir;
